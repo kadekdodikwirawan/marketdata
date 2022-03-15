@@ -28,6 +28,7 @@ const HomePage = () => {
   const [respon, setRespon] = useState([])
   const [error, setError] = useState(null)
   const addQue = () => {
+    setIsloading(true)
     const list_resi = resi.split("\n")
     list_resi.forEach(el => {
       instance.post('/resi-id/track', { resi: el, kurir: kurir })
@@ -37,6 +38,7 @@ const HomePage = () => {
           setError(e)
         })
     });
+    setIsloading(false)
   }
   return (
     <>
