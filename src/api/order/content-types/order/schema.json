@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "orders"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "orders"
+    },
+    "ekpedisi": {
+      "type": "string"
+    },
+    "ongkir": {
+      "type": "integer"
+    },
+    "potongan_cs": {
+      "type": "integer"
+    },
+    "keterangan": {
+      "type": "string"
+    },
+    "produk": {
+      "type": "json"
+    },
+    "total_pembayaran": {
+      "type": "integer"
+    },
+    "harga_pokok": {
+      "type": "integer"
+    },
+    "total_qty": {
+      "type": "integer"
+    },
+    "fee_kurir": {
+      "type": "integer"
+    },
+    "status_pengiriman": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "tgl_selesai": {
+      "type": "date"
+    },
+    "tgl_dana_cair": {
+      "type": "date"
+    },
+    "tgl_rts": {
+      "type": "date"
+    },
+    "tgl_terkonfirmasi": {
+      "type": "date"
+    }
+  }
+}
