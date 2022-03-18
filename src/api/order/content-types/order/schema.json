@@ -4,10 +4,11 @@
   "info": {
     "singularName": "order",
     "pluralName": "orders",
-    "displayName": "Order"
+    "displayName": "Order",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -17,7 +18,7 @@
       "target": "api::customer.customer",
       "inversedBy": "orders"
     },
-    "users_permissions_user": {
+    "sales_by": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
@@ -67,6 +68,12 @@
     },
     "tgl_terkonfirmasi": {
       "type": "date"
+    },
+    "resi": {
+      "type": "string"
+    },
+    "opsi_pengiriman": {
+      "type": "string"
     }
   }
 }
