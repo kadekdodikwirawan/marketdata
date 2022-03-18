@@ -19,7 +19,8 @@
       "type": "text"
     },
     "whatsapp": {
-      "type": "string"
+      "type": "string",
+      "unique": true
     },
     "orders": {
       "type": "relation",
