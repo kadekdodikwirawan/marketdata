@@ -18,9 +18,18 @@ module.exports = createCoreController('api::customer.customer', ({ strapi }) => 
                     data: entry
                 };
             } else {
-                ctx.send({
-                    message: 'Whatsapp tidak ditemukan'
-                }, 404);
+                ctx.send(
+                    {
+                        "data": null,
+                        "error": {
+                            "status": "404", // HTTP status
+                            "name": "", // Strapi error name ('ApplicationError' or 'ValidationError')
+                            "message": "Whatsapp tidak ditemukan", // A human reable error message
+                            "details": {
+                                // error info specific to the error type
+                            }
+                        }
+                    }, 404);
             }
         } catch (err) {
             ctx.body = err;
