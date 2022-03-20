@@ -18,9 +18,9 @@ module.exports = createCoreController('api::customer.customer', ({ strapi }) => 
                     data: entry
                 };
             } else {
-                ctx.body = {
-                    data: null
-                }
+                ctx.send({
+                    message: 'Whatsapp tidak ditemukan'
+                }, 404);
             }
         } catch (err) {
             ctx.body = err;
