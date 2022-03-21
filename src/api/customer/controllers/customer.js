@@ -11,6 +11,7 @@ module.exports = createCoreController('api::customer.customer', ({ strapi }) => 
     async findCustomerByWhatsapp(ctx) {
         try {
             const entry = await strapi.db.query('api::customer.customer').findOne({
+                populate: true,
                 where: { whatsapp: ctx.params.id }
             })
             if (entry) {
@@ -18,18 +19,7 @@ module.exports = createCoreController('api::customer.customer', ({ strapi }) => 
                     data: entry
                 };
             } else {
-                ctx.send(
-                    {
-                        "data": null,
-                        "error": {
-                            "status": "404", // HTTP status
-                            "name": "", // Strapi error name ('ApplicationError' or 'ValidationError')
-                            "message": "Whatsapp tidak ditemukan", // A human reable error message
-                            "details": {
-                                // error info specific to the error type
-                            }
-                        }
-                    }, 404);
+                return ctx.notFound('Whatsapp tidak ditemukan');
             }
         } catch (err) {
             ctx.body = err;
