@@ -14,4 +14,12 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
         const { data, meta } = await super.find(ctx);
         return { data, meta };
     },
+    async create(ctx) {
+        // some logic here
+        const response = await super.create(ctx);
+        // some more logic
+        strapi.io.emit('orderCreated', response);
+        return response;
+    }
+
 }));
