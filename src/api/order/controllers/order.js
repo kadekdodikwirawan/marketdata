@@ -17,7 +17,7 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
     async create(ctx) {
         // some logic here
         const response = await super.create(ctx);
-        // some more logic
+        // some more logic order socket
         strapi.io.emit('orderCreated', response);
         return response;
     }
