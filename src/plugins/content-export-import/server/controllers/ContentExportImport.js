@@ -20,7 +20,9 @@ module.exports = {
     });
   },
   deleteAllContent: async (ctx) => {
+    console.log(ctx);
     const validationResult = validator.validateDeleteRequest(ctx.request.body);
+    console.log(validationResult);
     if (validationResult) {
       ctx.throw(400, validationResult);
       return;
@@ -28,7 +30,7 @@ module.exports = {
     const count = await strapi
       .plugin(PLUGIN_ID)
       .service('contentExportImportService').deleteAllData(
-      ctx.request.body.targetModelUid, ctx);
+        ctx.request.body.targetModelUid, ctx);
     ctx.send({
       message: 'ok',
       count,
