@@ -5,8 +5,8 @@ module.exports = {
         resolve: './src/plugins/resi-id'
     },
     // ...
-    'content-export-import': {
+    'content-import-export': {
         enabled: true,
-        resolve: './src/plugins/content-export-import'
+        resolve: './src/plugins/content-import-export'
     },
 }
