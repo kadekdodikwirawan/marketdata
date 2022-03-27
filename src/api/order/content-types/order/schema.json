@@ -74,6 +74,18 @@
     },
     "opsi_pengiriman": {
       "type": "string"
+    },
+    "alamat_pengiriman": {
+      "type": "string"
+    },
+    "provinsi": {
+      "type": "string"
+    },
+    "kabupaten": {
+      "type": "string"
+    },
+    "kecamatan": {
+      "type": "string"
     }
   }
 }
