@@ -86,6 +86,9 @@
     },
     "kecamatan": {
       "type": "string"
+    },
+    "kode_pos": {
+      "type": "integer"
     }
   }
 }

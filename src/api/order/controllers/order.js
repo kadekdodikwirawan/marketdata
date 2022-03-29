@@ -3,7 +3,7 @@
 /**
  *  order controller
  */
-
+const { _ } = require('lodash');
 const { createCoreController } = require('@strapi/strapi').factories;
 
 module.exports = createCoreController('api::order.order', ({ strapi }) => ({
@@ -19,6 +19,8 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
         // some more logic order socket
         strapi.io.emit('orderCreated', response);
         return response;
+    },
+    async knek(ctx) {
+        return 'ok';
     }
-
 }));
