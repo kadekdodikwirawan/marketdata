@@ -50,10 +50,12 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
         const last_status = ctx.request.body.result.actual_latest_status.status
         const resi = ctx.request.body.result.summary.awb;
         const knex = await strapi.db.connection
-        return knex('orders')
+        const query = knex('orders')
             .where({ resi: resi })
             .update({
                 status_pengiriman: last_status
             })
+        console.log(query);
+        return query;
     }
 }));
