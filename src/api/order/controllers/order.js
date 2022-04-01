@@ -55,7 +55,6 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
             .update({
                 status_pengiriman: last_status
             })
-        console.log(query);
         return query;
     }
 }));

@@ -8,8 +8,12 @@ module.exports = {
   exampleAction: async (ctx, next) => {
     try {
       const knex = await strapi.db.connection.context.raw(`
-      SELECT up_users.username, SUM(orders.total_pembayaran) AS gross_profit, COUNT(*) AS jmlh,
-      SUM(produks.quantity) AS total_produk
+      SELECT
+      up_users.username,
+      SUM(orders.total_pembayaran) AS gross_profit,
+      COUNT(*) AS jmlh,
+      SUM(produks.quantity) AS total_produk,
+      COUNT(IF(orders.status_pengiriman LIKE '%retur%', orders.status_pengiriman, null)) AS rts
       FROM up_users
 
       INNER JOIN orders_sales_by_links ON up_users.id=orders_sales_by_links.user_id
@@ -40,6 +44,22 @@ module.exports = {
       // return users_order
     } catch (err) {
       ctx.body = err;
+    }
+  },
+
+  async getOrderbyDate(ctx) {
+    try {
+      const knex = await strapi.db.connection.context.raw(
+        `
+      SELECT DATE_FORMAT(created_at, '%d %M %y') AS ForDate,
+      COUNT(*) AS total_order,
+      COUNT(IF(orders.status_pengiriman LIKE '%retur%', orders.status_pengiriman, null)) AS rts
+      FROM orders
+      GROUP BY ForDate
+      `);
+      return { data: knex[0] }
+    } catch (error) {
+      ctx.body = error
     }
   }
 };

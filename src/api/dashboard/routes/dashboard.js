@@ -9,5 +9,14 @@ module.exports = {
         middlewares: [],
       },
     },
+    {
+      method: 'GET',
+      path: '/orderbydate',
+      handler: 'dashboard.getOrderbyDate',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
   ],
 };
