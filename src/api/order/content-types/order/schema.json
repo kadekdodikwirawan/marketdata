@@ -95,6 +95,9 @@
     },
     "status": {
       "type": "string"
+    },
+    "tgl_order": {
+      "type": "date"
     }
   }
 }
