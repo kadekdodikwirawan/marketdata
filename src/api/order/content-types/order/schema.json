@@ -89,6 +89,12 @@
     },
     "kode_pos": {
       "type": "integer"
+    },
+    "total_hpp": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "string"
     }
   }
 }
