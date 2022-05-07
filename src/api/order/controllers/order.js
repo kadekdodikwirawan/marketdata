@@ -56,5 +56,16 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
                 status_pengiriman: last_status
             })
         return query;
+    },
+
+    async countOrderByStatus() {
+        try {
+            const knex = await strapi.db.connection.context.raw(`
+            SELECT status, COUNT(*) AS jumlah FROM orders GROUP BY status
+            `)
+            return { data: knex[0] }
+        } catch (error) {
+            ctx.body = error
+        }
     }
 }));
