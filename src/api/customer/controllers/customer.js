@@ -25,4 +25,41 @@ module.exports = createCoreController('api::customer.customer', ({ strapi }) => 
             ctx.body = err;
         }
     },
+
+    async broadcastFn(ctx) {
+        try {
+            const bd_done = await strapi.db.connection.context.raw(`
+                SELECT broadcast FROM up_users WHERE broadcast IS NOT NULL
+                `)
+            const rawData = bd_done[0];
+            const array = [];
+            await rawData.map((e) => {
+                const arr = JSON.parse(e.broadcast);
+                const result = arr.data;
+                array.push(...result);
+            });
+            return { data: array };
+        } catch (error) {
+            ctx.body = error
+        }
+    },
+
+    async dataToBc(ctx) {
+        try {
+            const { id, limit } = ctx.request.body;
+            console.log(id);
+            console.log(limit);
+            const entry = await strapi.db.query('api::customer.customer').findMany({
+                where: {
+                    id: {
+                        $notIn: id,
+                    },
+                },
+                limit: limit,
+            });
+            return { data: entry }
+        } catch (error) {
+            ctx.body = error
+        }
+    }
 }));
