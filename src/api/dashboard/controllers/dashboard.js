@@ -57,5 +57,16 @@ module.exports = {
     } catch (error) {
       ctx.body = error
     }
+  },
+
+  async resetUserBc(ctx) {
+    try {
+      await strapi.db.connection.context.raw(`
+      UPDATE up_users SET broadcast = NULL  WHERE broadcast IS NOT NULL
+      `)
+      return { data: 'ok' }
+    } catch (error) {
+      ctx.body = error
+    }
   }
 };

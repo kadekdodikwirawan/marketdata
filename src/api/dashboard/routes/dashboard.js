@@ -18,5 +18,14 @@ module.exports = {
         middlewares: [],
       },
     },
+    {
+      method: 'POST',
+      path: '/reset-user-bc',
+      handler: 'dashboard.resetUserBc',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
   ],
 };
