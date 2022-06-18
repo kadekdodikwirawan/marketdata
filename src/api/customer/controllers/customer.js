@@ -46,14 +46,13 @@ module.exports = createCoreController('api::customer.customer', ({ strapi }) => 
 
     async dataToBc(ctx) {
         try {
-            const { id, limit, sort } = ctx.request.body;
+            const { id, limit } = ctx.request.body;
             const entry = await strapi.db.query('api::customer.customer').findMany({
                 where: {
                     id: {
                         $notIn: id,
                     },
                 },
-                offset: Math.floor(Math.random() * 10) + 1,
                 limit: limit,
                 orderBy: sort
             });
