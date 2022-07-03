@@ -27,6 +27,18 @@
       "relation": "oneToMany",
       "target": "api::order.order",
       "mappedBy": "customer"
+    },
+    "kecamatan": {
+      "type": "string"
+    },
+    "kabupaten": {
+      "type": "string"
+    },
+    "provinsi": {
+      "type": "string"
+    },
+    "status_admin": {
+      "type": "string"
     }
   }
 }
