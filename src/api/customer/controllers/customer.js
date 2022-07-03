@@ -46,17 +46,25 @@ module.exports = createCoreController('api::customer.customer', ({ strapi }) => 
 
     async dataToBc(ctx) {
         try {
-            const { id, limit } = ctx.request.body;
-            const entry = await strapi.db.query('api::customer.customer').findMany({
-                where: {
-                    id: {
-                        $notIn: id,
+            const { id, limit, sort } = ctx.request.body;
+            if (id.length != 0) {
+                const entry = await strapi.db.query('api::customer.customer').findMany({
+                    where: {
+                        id: {
+                            $notIn: id,
+                        },
                     },
-                },
-                limit: limit,
-                orderBy: sort
-            });
-            return { data: entry }
+                    limit: limit,
+                    orderBy: sort
+                });
+                return { data: entry }
+            } else {
+                const entry = await strapi.db.query('api::customer.customer').findMany({
+                    limit: limit,
+                    orderBy: sort
+                });
+                return { data: entry }
+            }
         } catch (error) {
             ctx.body = error
         }

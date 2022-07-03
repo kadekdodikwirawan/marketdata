@@ -39,6 +39,9 @@
     },
     "status_admin": {
       "type": "string"
+    },
+    "pos": {
+      "type": "string"
     }
   }
 }
