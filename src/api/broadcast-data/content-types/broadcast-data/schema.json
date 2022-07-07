@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "broadcast_datas",
+  "info": {
+    "singularName": "broadcast-data",
+    "pluralName": "broadcast-datas",
+    "displayName": "Broadcast Data"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "whatsapp": {
+      "type": "biginteger"
+    }
+  }
+}
