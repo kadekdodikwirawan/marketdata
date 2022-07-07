@@ -4,7 +4,8 @@
   "info": {
     "singularName": "broadcast-data",
     "pluralName": "broadcast-datas",
-    "displayName": "Broadcast Data"
+    "displayName": "Broadcast Data",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -12,7 +13,7 @@
   "pluginOptions": {},
   "attributes": {
     "whatsapp": {
-      "type": "biginteger"
+      "type": "string"
     }
   }
 }
