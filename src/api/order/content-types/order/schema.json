@@ -98,6 +98,9 @@
     },
     "tgl_order": {
       "type": "date"
+    },
+    "nama_penerima": {
+      "type": "string"
     }
   }
 }
