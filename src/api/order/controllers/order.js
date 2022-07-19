@@ -33,7 +33,7 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
                 }
                 axios.post('https://resi.id/api/track-queue', data, config)
                 axios.get(`https://resi.id/api/track?courier=${ekpedisi.toLowerCase()}&awb=${resi}`, config).then(
-                    (res) => {
+                    async (res) => {
                         const last_status = res.result.actual_latest_status.status
                         const resi = res.result.summary.awb;
                         const knex = await strapi.db.connection
