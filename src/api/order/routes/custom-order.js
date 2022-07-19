@@ -10,5 +10,10 @@ module.exports = {
             path: '/order/updatestatus',
             handler: 'order.updateStatusPengiriman',
         },
+        { // Path defined with a URL parameter
+            method: 'GET',
+            path: '/order/status-pengiriman',
+            handler: 'order.getStatusPengiriman',
+        },
     ]
 }
