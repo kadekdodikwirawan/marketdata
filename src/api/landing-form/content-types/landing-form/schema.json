@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "landing_forms",
+  "info": {
+    "singularName": "landing-form",
+    "pluralName": "landing-forms",
+    "displayName": "Landing Form",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nama": {
+      "type": "string"
+    },
+    "whatsapp": {
+      "type": "string"
+    },
+    "produk": {
+      "type": "richtext"
+    },
+    "kecamatan": {
+      "type": "string"
+    },
+    "kabupaten": {
+      "type": "string"
+    },
+    "provinsi": {
+      "type": "string"
+    },
+    "kode_pos": {
+      "type": "string"
+    },
+    "ip": {
+      "type": "string"
+    }
+  }
+}
