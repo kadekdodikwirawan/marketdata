@@ -35,6 +35,9 @@
     },
     "ip": {
       "type": "string"
+    },
+    "alamat": {
+      "type": "richtext"
     }
   }
 }
