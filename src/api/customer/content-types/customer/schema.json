@@ -42,6 +42,9 @@
     },
     "pos": {
       "type": "string"
+    },
+    "status_customer": {
+      "type": "string"
     }
   }
 }
