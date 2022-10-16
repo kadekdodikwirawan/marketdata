@@ -101,6 +101,12 @@
     },
     "nama_penerima": {
       "type": "string"
+    },
+    "tgl_kirim": {
+      "type": "date"
+    },
+    "status_customer": {
+      "type": "string"
     }
   }
 }
