@@ -71,6 +71,14 @@
     },
     "broadcast": {
       "type": "json"
+    },
+    "broadcast_data": {
+      "type": "enumeration",
+      "enum": [
+        "buyer",
+        "not_buyer"
+      ],
+      "default": "buyer"
     }
   }
 }
