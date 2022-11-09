@@ -46,13 +46,14 @@ module.exports = createCoreController('api::customer.customer', ({ strapi }) => 
 
     async dataToBc(ctx) {
         try {
-            const { id, limit, sort } = ctx.request.body;
+            const { id, limit, sort, status } = ctx.request.body;
             if (id.length != 0) {
                 const entry = await strapi.db.query('api::broadcast-data.broadcast-data').findMany({
                     where: {
                         id: {
                             $notIn: id,
                         },
+                        status: { $eq: status }
                     },
                     limit: limit,
                     orderBy: sort
@@ -60,6 +61,9 @@ module.exports = createCoreController('api::customer.customer', ({ strapi }) => 
                 return { data: entry }
             } else {
                 const entry = await strapi.db.query('api::broadcast-data.broadcast-data').findMany({
+                    where: {
+                        status: { $eq: status }
+                    },
                     limit: limit,
                     orderBy: sort
                 });
