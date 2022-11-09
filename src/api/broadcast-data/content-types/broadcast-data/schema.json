@@ -17,6 +17,11 @@
     },
     "status": {
       "type": "string"
+    },
+    "is_broadcasted": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

@@ -46,31 +46,52 @@ module.exports = createCoreController('api::customer.customer', ({ strapi }) => 
 
     async dataToBc(ctx) {
         try {
-            const { id, limit, sort, status } = ctx.request.body;
-            if (id.length != 0) {
-                const entry = await strapi.db.query('api::broadcast-data.broadcast-data').findMany({
-                    where: {
-                        id: {
-                            $notIn: id,
-                        },
-                        status: { $eq: status }
-                    },
-                    limit: limit,
-                    orderBy: sort
-                });
-                return { data: entry }
-            } else {
-                const entry = await strapi.db.query('api::broadcast-data.broadcast-data').findMany({
-                    where: {
-                        status: { $eq: status }
-                    },
-                    limit: limit,
-                    orderBy: sort
-                });
-                return { data: entry }
-            }
+        const { limit, sort, status } = ctx.request.body;
+            const entry = await strapi.db.query('api::broadcast-data.broadcast-data').findMany({
+                where: {
+                    $or: [
+                        {is_broadcasted: {$eq: false }},
+                        {is_broadcasted: {$null: true }},
+                    ],
+                    status: { $eq: status }
+                },
+                limit: limit,
+                orderBy: sort
+            });
+            return { data: entry }
         } catch (error) {
             ctx.body = error
+        }
+    },
+    async update_broadcast_data(ctx) {
+        try { 
+            const { ids } = ctx.request.body;
+            const entry = await strapi.db.query('api::broadcast-data.broadcast-data').updateMany({
+                where: { id: { $in: ids } },
+                data: { is_broadcasted: true }
+            })
+            return { data: entry }
+        }catch(err){
+            console.log(err);
+        }
+    },
+    async reset_broadcast_data(ctx) {
+        try {
+            const { status } = ctx.request.body;
+            if(status){
+                const entry = await strapi.db.query('api::broadcast-data.broadcast-data').updateMany({
+                    where: { status },
+                    data: { is_broadcasted: false }
+                })
+                return { data: entry }
+            }else{
+                const entry = await strapi.db.query('api::broadcast-data.broadcast-data').updateMany({
+                    data: { is_broadcasted: false }
+                })
+                return { data: entry }
+            }
+        }catch(err){
+            console.log(err);
         }
     }
 }));
