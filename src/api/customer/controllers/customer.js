@@ -59,7 +59,7 @@ module.exports = createCoreController('api::customer.customer', ({ strapi }) => 
             //     orderByRaw: 'RAND()'
             // });
             const entry = await strapi.db.connection.context.raw(`
-                SELECT * FROM broadcast_datas ORDER BY RAND() LIMIT ${limit}
+                SELECT * FROM broadcast_datas WHERE is_broadcasted IS FALSE ORDER BY RAND() LIMIT ${limit}
                 `)
             return { data: entry[0] }
         } catch (error) {
