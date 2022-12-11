@@ -46,19 +46,22 @@ module.exports = createCoreController('api::customer.customer', ({ strapi }) => 
 
     async dataToBc(ctx) {
         try {
-        const { limit, sort, status } = ctx.request.body;
-            const entry = await strapi.db.query('api::broadcast-data.broadcast-data').findMany({
-                where: {
-                    $or: [
-                        {is_broadcasted: {$eq: false }},
-                        {is_broadcasted: {$null: true }},
-                    ],
-                    status: { $eq: status }
-                },
-                limit: limit,
-                orderBy: sort
-            });
-            return { data: entry }
+            const { limit, sort, status } = ctx.request.body;
+            // const entry = await strapi.db.query('api::broadcast-data.broadcast-data').findMany({
+            //     where: {
+            //         $or: [
+            //             {is_broadcasted: {$eq: false }},
+            //             {is_broadcasted: {$null: true }},
+            //         ],
+            //         //status: { $eq: 'buyer' }
+            //     },
+            //     limit: limit,
+            //     orderByRaw: 'RAND()'
+            // });
+            const entry = await strapi.db.connection.context.raw(`
+                SELECT * FROM broadcast_datas ORDER BY RAND() LIMIT ${limit}
+                `)
+            return { data: entry[0] }
         } catch (error) {
             ctx.body = error
         }
