@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "data_broadcast_belis",
+  "collectionName": "broadcast_data_belis",
   "info": {
-    "singularName": "data-broadcast-beli",
-    "pluralName": "data-broadcast-belis",
-    "displayName": "Data broadcast beli",
-    "description": ""
+    "singularName": "broadcast-data-beli",
+    "pluralName": "broadcast-data-belis",
+    "displayName": "Broadcast data beli"
   },
   "options": {
     "draftAndPublish": false
