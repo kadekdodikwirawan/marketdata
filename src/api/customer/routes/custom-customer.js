@@ -13,7 +13,7 @@ module.exports = {
         { // Get bulk BC data
             method: 'POST',
             path: '/customers/getbcdata',
-            handler: 'customer.dataToBc',
+            handler: 'customer.getbcdata',
         },
         {
             method: 'PUT',
