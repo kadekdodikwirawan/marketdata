@@ -38,6 +38,12 @@
     },
     "alamat": {
       "type": "richtext"
+    },
+    "handle_by": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "landing_form"
     }
   }
 }

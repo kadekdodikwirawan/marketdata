@@ -79,6 +79,12 @@
         "not_buyer"
       ],
       "default": "buyer"
+    },
+    "landing_form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::landing-form.landing-form",
+      "inversedBy": "handle_by"
     }
   }
 }
