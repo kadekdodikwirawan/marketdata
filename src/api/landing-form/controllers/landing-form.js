@@ -13,5 +13,9 @@ module.exports = createCoreController('api::landing-form.landing-form', ({ strap
         strapi.io.emit('formCreated', response);
         return response;
     },
-
+    async update(ctx) {
+        const response = await super.create(ctx);
+        strapi.io.emit('formUpdated', response);
+        return response;
+    }
 }));
