@@ -41,9 +41,9 @@
     },
     "handle_by": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "landing_form"
+      "inversedBy": "landing_forms"
     }
   }
 }

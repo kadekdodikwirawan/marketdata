@@ -80,11 +80,11 @@
       ],
       "default": "buyer"
     },
-    "landing_form": {
+    "landing_forms": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::landing-form.landing-form",
-      "inversedBy": "handle_by"
+      "mappedBy": "handle_by"
     }
   }
 }
