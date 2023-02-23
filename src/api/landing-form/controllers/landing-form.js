@@ -6,4 +6,12 @@
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::landing-form.landing-form');
+module.exports = createCoreController('api::landing-form.landing-form', ({ strapi }) => ({
+    
+    async create(ctx) {
+        const response = await super.create(ctx);
+        strapi.io.emit('formCreated', response);
+        return response;
+    },
+
+}));
