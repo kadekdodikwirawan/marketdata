@@ -12,7 +12,7 @@ module.exports = createCoreController('api::landing-form.landing-form', ({ strap
         const response = await super.create(ctx);
         strapi.io.emit('formCreated', response);
         const entry = await strapi.entityService.findOne('api::landing-form.landing-form', response.id, {
-            populate: { hadle_by: true },
+            populate: { handle_by: true },
           });
         return entry;
     },
@@ -20,7 +20,7 @@ module.exports = createCoreController('api::landing-form.landing-form', ({ strap
         const response = await super.update(ctx);
         strapi.io.emit('formUpdated', response);
         const entry = await strapi.entityService.findOne('api::landing-form.landing-form', response.id, {
-            populate: { hadle_by: true },
+            populate: { handle_by: true },
           });
         return entry;
     }
