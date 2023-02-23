@@ -11,11 +11,17 @@ module.exports = createCoreController('api::landing-form.landing-form', ({ strap
     async create(ctx) {
         const response = await super.create(ctx);
         strapi.io.emit('formCreated', response);
-        return response;
+        const entry = await strapi.entityService.findOne('api::landing-form.landing-form', response.id, {
+            populate: { hadle_by: true },
+          });
+        return entry;
     },
     async update(ctx) {
         const response = await super.update(ctx);
         strapi.io.emit('formUpdated', response);
-        return response;
+        const entry = await strapi.entityService.findOne('api::landing-form.landing-form', response.id, {
+            populate: { hadle_by: true },
+          });
+        return entry;
     }
 }));
