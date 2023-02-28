@@ -10,18 +10,18 @@ module.exports = createCoreController('api::landing-form.landing-form', ({ strap
     
     async create(ctx) {
         const response = await super.create(ctx);
-        strapi.io.emit('formCreated', response);
         const entry = await strapi.entityService.findOne('api::landing-form.landing-form', response.data.id, {
-            populate: { handle_by: true },
-          });
+          populate: { handle_by: true },
+        });
+        strapi.io.emit('formCreated', entry);
         return entry;
     },
     async update(ctx) {
         const response = await super.update(ctx);
-        strapi.io.emit('formUpdated', response);
         const entry = await strapi.entityService.findOne('api::landing-form.landing-form', response.data.id, {
-            populate: { handle_by: true },
-          });
+          populate: { handle_by: true },
+        });
+        strapi.io.emit('formUpdated', entry);
         return entry;
     }
 }));
