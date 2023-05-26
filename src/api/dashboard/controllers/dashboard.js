@@ -1,5 +1,8 @@
 'use strict';
 
+const { default: axios } = require("axios");
+const accessToken = 'EAAInTcBBVTgBAD6monZA5Dd9jS4nor8EB8zkppOKxSPUqzEpP4xln1XFqTRchLxH9jU5OrHATo8N6HKNuVYh2tuYqS6fZBCvdFJ9l2SDEjNO3UoNXiLsNZCdYzB6XOyFQS0beyEWvHKND18ZAZBQVGHdwRwhBRmn2mZBCeVUv4fpLF14oRhVmJZAJ0BthMX58drmfrZC4r0R8Ij29pMzqRlDA9SRyWwOl64ZD';
+
 /**
  * A set of functions called "actions" for `dashboard`
  */
@@ -68,5 +71,24 @@ module.exports = {
     } catch (error) {
       ctx.body = error
     }
+  },
+
+  // get ads account id from facebook graph API 
+  async getAdsAccountId() {
+    try {
+      const { data } = await axios.get(`https://graph.facebook.com/v16.0/me/adaccounts?access_token=${accessToken}`);
+      return  data 
+    } catch (error) {
+      ctx.body = error
+    }
+  },
+
+  async getAdsetStatus(adsetId){
+    const url = `https://graph.facebook.com/v16.0/${adsetId}?fields=status&access_token=${accessToken}`
+  },
+
+  // get ads link to landing page that active 
+  async getAdsLink(ctx) {
+    `${creativeId}?fields=object_story_spec`
   }
 };

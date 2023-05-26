@@ -19,6 +19,15 @@ module.exports = {
       },
     },
     {
+      method: 'GET',
+      path: '/fb-adsaccounts',
+      handler: 'dashboard.getAdsAccountId',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
+    {
       method: 'POST',
       path: '/reset-user-bc',
       handler: 'dashboard.resetUserBc',
