@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "whatsapp_capis",
+  "info": {
+    "singularName": "whatsapp-capi",
+    "pluralName": "whatsapp-capis",
+    "displayName": "Whatsapp CAPI"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "greeting": {
+      "type": "text"
+    },
+    "pixel": {
+      "type": "text"
+    },
+    "token": {
+      "type": "text"
+    },
+    "akun": {
+      "type": "string"
+    }
+  }
+}
