@@ -15,6 +15,7 @@ module.exports = createCoreController('api::whatsapp-capi.whatsapp-capi', ({ str
             const notif = data.notification;
             if (notif.packageName == "org.telegram.messenger") {
                 const greeting = notif.text;
+                console.log("greeting", greeting)
                 const entries = await strapi.entityService.findMany('api::whatsapp-capi.whatsapp-capi', {
                     filters: {
                         greeting: {
