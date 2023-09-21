@@ -4,7 +4,8 @@
   "info": {
     "singularName": "produk",
     "pluralName": "produks",
-    "displayName": "Produk"
+    "displayName": "Produk",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,14 @@
     },
     "stok": {
       "type": "integer"
+    },
+    "harga_jual": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true
+    },
+    "promo": {
+      "type": "json"
     }
   }
 }
