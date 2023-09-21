@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmarketdata=self.webpackChunkmarketdata||[]).push([[820],{60820:e=>{e.exports=JSON.parse('{"content-export-import":{"Fetch":"Fetch","Fetching":"Fetching"}}')}}]);
