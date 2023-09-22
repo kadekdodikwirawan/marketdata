@@ -16,7 +16,8 @@
       "type": "string"
     },
     "whatsapp": {
-      "type": "string"
+      "type": "string",
+      "unique": true
     },
     "produk": {
       "type": "richtext"
@@ -34,7 +35,8 @@
       "type": "string"
     },
     "ip": {
-      "type": "string"
+      "type": "string",
+      "unique": true
     },
     "alamat": {
       "type": "richtext"
