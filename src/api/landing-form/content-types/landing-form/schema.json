@@ -36,7 +36,7 @@
     },
     "ip": {
       "type": "string",
-      "unique": true
+      "unique": false
     },
     "alamat": {
       "type": "richtext"
