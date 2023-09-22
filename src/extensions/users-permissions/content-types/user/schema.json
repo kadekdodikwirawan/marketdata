@@ -85,6 +85,15 @@
       "relation": "oneToMany",
       "target": "api::landing-form.landing-form",
       "mappedBy": "handle_by"
+    },
+    "whatsapp": {
+      "type": "string"
+    },
+    "produks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::produk.produk",
+      "mappedBy": "users"
     }
   }
 }
