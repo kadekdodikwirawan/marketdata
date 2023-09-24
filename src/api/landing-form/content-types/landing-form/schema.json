@@ -64,6 +64,9 @@
     },
     "kurir": {
       "type": "string"
+    },
+    "meta_data": {
+      "type": "json"
     }
   }
 }
