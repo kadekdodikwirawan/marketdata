@@ -53,6 +53,9 @@
     "actual_ongkir": {
       "type": "biginteger"
     },
+    "biaya_cod": {
+      "type": "biginteger"
+    },
     "total": {
       "type": "biginteger"
     },
