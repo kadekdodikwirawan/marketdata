@@ -50,6 +50,9 @@
     "ongkir": {
       "type": "biginteger"
     },
+    "actual_ongkir": {
+      "type": "biginteger"
+    },
     "total": {
       "type": "biginteger"
     },
