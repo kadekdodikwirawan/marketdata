@@ -46,6 +46,18 @@
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "landing_forms"
+    },
+    "ongkir": {
+      "type": "biginteger"
+    },
+    "total": {
+      "type": "biginteger"
+    },
+    "metode_pembayaran": {
+      "type": "string"
+    },
+    "kurir": {
+      "type": "string"
     }
   }
 }
